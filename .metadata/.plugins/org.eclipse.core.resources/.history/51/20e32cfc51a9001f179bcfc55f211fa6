@@ -1,0 +1,10 @@
+package com.sts;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class TestController {
+	public String handleTest() {
+		return "Hello this is my 1st controller";
+	}
+}
