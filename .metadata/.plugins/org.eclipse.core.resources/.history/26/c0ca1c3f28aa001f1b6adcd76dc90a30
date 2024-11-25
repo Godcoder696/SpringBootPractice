@@ -1,0 +1,19 @@
+package com.jpa.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.jpa.test.dao.UserRepository;
+
+@SpringBootApplication
+public class BootJpacrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context= SpringApplication.run(BootJpacrudApplication.class, args);
+		
+		context.getBean(UserRepository.class);
+	}
+
+}

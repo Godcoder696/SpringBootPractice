@@ -1,0 +1,41 @@
+package com.jpa.test;
+
+import java.util.Optional;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.jpa.test.dao.UserRepository;
+import com.jpa.test.entities.User;
+
+@SpringBootApplication
+public class BootJpacrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context= SpringApplication.run(BootJpacrudApplication.class, args);
+		
+		UserRepository userRepository= context.getBean(UserRepository.class);
+		
+		User user= new User();
+		
+		user.setName("Lakshay yadav");
+		user.setCity("Delhi");
+		user.setStatus("completed");
+		
+//		User save= userRepository.save(user);
+//		System.out.println(save);
+		
+//		find user and update where id=1
+		Optional<User> foundUserObj=userRepository.findById(1);
+		User foundUsr= foundUserObj.get();
+		foundUsr.setName("Lakshay Yadav");
+		User save= userRepository.save(foundUsr);
+		System.out.println(save);
+		
+//		get all data
+		
+	}
+
+}

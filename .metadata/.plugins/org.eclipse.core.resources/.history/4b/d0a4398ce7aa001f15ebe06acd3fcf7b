@@ -1,0 +1,47 @@
+package com.jpa.test;
+
+import java.util.Iterator;
+import java.util.Optional;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.jpa.test.dao.UserRepository;
+import com.jpa.test.entities.User;
+
+@SpringBootApplication
+public class BootJpacrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context= SpringApplication.run(BootJpacrudApplication.class, args);
+		
+		UserRepository userRepository= context.getBean(UserRepository.class);
+		
+//		1. Create
+		
+//		User user= new User();
+//		user.setName("Lakshay yadav");
+//		user.setCity("Delhi");
+//		user.setStatus("completed");
+//		User save= userRepository.save(user);
+//		System.out.println(save);
+		
+//		2. Update
+		
+//		Optional<User> foundUserObj=userRepository.findById(1);
+//		User foundUsr= foundUserObj.get();
+//		foundUsr.setName("Lakshay Yadav");
+//		User save= userRepository.save(foundUsr);
+//		System.out.println(save);
+		
+//		3. Get all data
+		Iterable<User> itr= userRepository.findAll();
+		itr.forEach(user->System.out.println(user));
+		
+//		4. Delete
+		
+	}
+
+}

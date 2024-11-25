@@ -1,0 +1,27 @@
+package com.jpa.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.jpa.test.dao.UserRepository;
+import com.jpa.test.entities.User;
+
+@SpringBootApplication
+public class BootJpacrudApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context= SpringApplication.run(BootJpacrudApplication.class, args);
+		
+		UserRepository userRepository= context.getBean(UserRepository.class);
+		
+		User user= new User();
+		
+		user.setId(0);
+		user.setName("Lakshay yadav");
+		user.setCity("Delhi");
+		user.setStatus("completed");
+	}
+
+}
