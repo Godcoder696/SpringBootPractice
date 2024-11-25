@@ -59,7 +59,24 @@ public class BootJpacrudApplication {
 		
 //		5. Custom Finders
 //		Link: https://docs.spring.io/spring-data/jpa/docs/current-SNAPSHOT/reference/html/#reference
-		List<User> foundUsr= userRepository.findByName("Lakshay yadav");
+		
+//		List<User> foundUsr= userRepository.findByName("Lakshay yadav");
+//		foundUsr.forEach(usr->{
+//			System.out.println(usr);
+//		});
+		
+//		Using JPQL/Query
+//		List<User> foundUsr= userRepository.findUsers();
+//		foundUsr.forEach(usr->{
+//			System.out.println(usr);
+//		});
+		
+//		List<User> foundUsr= userRepository.getUsersByName("Lakshay yadav","Delhi");
+//		foundUsr.forEach(usr->{
+//			System.out.println(usr);
+//		});
+		
+		List<User> foundUsr= userRepository.getUsersByNameNative();
 		foundUsr.forEach(usr->{
 			System.out.println(usr);
 		});
