@@ -57,7 +57,12 @@ public class BootJpacrudApplication {
 //		itr.forEach(user->System.out.println(user));
 //		userRepository.deleteAll(itr);
 		
-
+//		5. Custom Finders
+//		Link: https://docs.spring.io/spring-data/jpa/docs/current-SNAPSHOT/reference/html/#reference
+		List<User> foundUsr= userRepository.findByName("Lakshay yadav");
+		foundUsr.forEach(usr->{
+			System.out.println(usr);
+		});
 	}
 
 }
